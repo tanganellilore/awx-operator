@@ -251,23 +251,32 @@ data:
         command: ansible-runner
         params: worker
         allowruntimeparams: true
+        verifysignature: {{ sign_work|bool }}
     - work-kubernetes:
         worktype: kubernetes-runtime-auth
         authmethod: runtime
         allowruntimeauth: true
         allowruntimepod: true
         allowruntimeparams: true
+        verifysignature: {{ sign_work|bool }}
     - work-kubernetes:
         worktype: kubernetes-incluster-auth
         authmethod: incluster
         allowruntimeauth: true
         allowruntimepod: true
         allowruntimeparams: true
+        verifysignature: {{ sign_work|bool }}
     - tls-client:
         cert: /etc/receptor/tls/receptor.crt
         key: /etc/receptor/tls/receptor.key
         name: tlsclient
         rootcas: /etc/receptor/tls/ca/receptor-ca.crt
+{% if sign_work|bool %}
     - work-signing:
         privatekey: /etc/receptor/signing/work-private-key.pem
         tokenexpiration: 1m
+{% endif %}
+{% if sign_work|bool %}
+    - work-verification:
+        publickey: /etc/receptor/work_public_key.pem
+{% endif %}

@@ -50,6 +50,10 @@ spec:
                 description: If a privileged security context should be enabled
                 type: boolean
                 default: false
+              sign_work:
+                description: If you want to disable Sign of work into exectuion node, for dev purpose only.
+                type: boolean
+                default: true
               admin_user:
                 description: Username to use for the admin account
                 type: string

@@ -1218,6 +1218,12 @@ Once the new AWX Operator is up and running, your AWX deployment will also be up
 Starting with AWX Operator v0.30.0 and AWX v21.7.0, standalone execution nodes can be added to your deployments.
 See [AWX execution nodes docs](https://github.com/ansible/awx/blob/devel/docs/execution_nodes.md) for information about this feature.
 
+For dev purpose, if you want to remove the Sign of work in the Execution env/node you can set following param on spec. Note that default value is true:
+```yaml
+  spec:
+    sign_work: False
+```
+
 #### Custom Receptor CA
 The control nodes on the K8S cluster will communicate with execution nodes via mutual TLS TCP connections, running via Receptor.
 Execution nodes will verify incoming connections by ensuring the x509 certificate was issued by a trusted Certificate Authority (CA).

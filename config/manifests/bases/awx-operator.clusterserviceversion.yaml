@@ -376,6 +376,12 @@ spec:
         - urn:alm:descriptor:com.tectonic.ui:advanced
         - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
         - urn:alm:descriptor:com.tectonic.ui:hidden
+      - displayName: Do you want to skip the Sign of work on execution Node?
+        path: sign_work
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:advanced
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
+        - urn:alm:descriptor:com.tectonic.ui:hidden
       - displayName: Deployment Type
         path: deployment_type
         x-descriptors:
